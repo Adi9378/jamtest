@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import axios from 'axios';
 import './Column.scss';
+import ES6Promise from 'es6-promise';
+import axios from 'axios';
+ES6Promise.polyfill();
 
 const ColumnsList = ({changeColumn}) => {
 
@@ -18,13 +20,14 @@ const ColumnsList = ({changeColumn}) => {
                 setColumns(res.data.rows);
             });
     }, [])
-    // create list with column names
+    // create list with column names to select data to looking for
     const list = columns.map(column => <option key={column.cid} value={column.name}>{column.name}</option>)
     
     return (
-        <div>
-            <label>Choisissez les donénes à afficher</label>
+        <div className='column-list'>
+            <label>Choisissez les données à afficher</label><br/>
             <select onChange={handleChange}>
+                <option value=''>Sélectionnez des données</option>
                 {list}
             </select>
         </div>

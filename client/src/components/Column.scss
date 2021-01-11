@@ -1,5 +1,7 @@
 table {
     border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
   }
 th {
 background: #ccc;
@@ -16,4 +18,8 @@ background: #efefef;
 
 tr:hover {
 background: #d1d1d1;
+}
+
+.column-list {
+  margin: 10px;
 }
